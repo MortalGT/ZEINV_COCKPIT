@@ -1,0 +1,4 @@
+@EndUserText.label: 'E-Invoice Head'
+define service ZSD_EINVOICE_HEAD {
+  expose ZC_EINVOICE_HEAD;
+}

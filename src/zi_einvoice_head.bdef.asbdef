@@ -1,0 +1,20 @@
+managed implementation in class zbp_i_einvoice_head unique;
+strict ( 2 );
+
+define behavior for ZI_EINVOICE_HEAD //alias <alias_name>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) CompanyCode, BillingDocument,EbillNo, Irn, Status, msg;
+
+  action CreateIRN result [1] $self;
+  action UpdEwB    result [1] $self;
+  action JSON      result [1] $self;
+  action UpdateEwB parameter ZA_EWB_DTLS result [1] $self;
+
+}
